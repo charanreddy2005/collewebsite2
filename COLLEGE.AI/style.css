@@ -1,0 +1,301 @@
+/* General Styles */
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1em 0;
+  text-align: center;
+}
+
+nav {
+  background-color: #f0f0f0;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+  margin-left: 0px;
+  position: relative;
+}
+
+nav a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #18c942;
+  transition: width 0.3s ease-in-out;
+}
+
+nav a:hover:after {
+  width: 100%;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.circle-image {
+  display: inline-block;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text Animations */
+h1, h2, .hero p {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+p {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 2em 0;
+}
+
+.hero marquee {
+  background-color: #f0f0f0;
+  color: red;
+  font-weight: bold;
+  padding: 5px;
+}
+
+/* Style for the heading */
+.heading {
+  font-size: 6ch;
+  font-stretch: extra-condensed;
+  color: brown;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 2px;
+}
+
+/* Style for the paragraph section */
+.para {
+  font-size: 1.25em;
+  line-height: 1.8;
+  color: #333;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  margin-top: 20px;
+}
+
+.para p {
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Image Container */
+.img-container {
+  display: flex;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.image {
+  width: calc(25% - 20px);
+  margin-right: 20px;
+  animation: image-slide 20s ease-in-out infinite;
+  opacity: 0;
+}
+
+.image:last-child {
+  margin-right: 0;
+}
+
+@keyframes image-slide {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  75.01% {
+    transform: translateX(400%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+
+/* Hide scrollbar (optional) */
+.img-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Animated Chatbot CSS */
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.chatbot-container.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.chatbot-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.chatbot-messages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  height: 200px;
+}
+
+.chatbot-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.chatbot-input input {
+  flex-grow: 1;
+  border: none;
+  padding: 5px;
+  outline: none;
+}
+
+.chatbot-input button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.chatbot-input button:hover {
+  transform: scale(1.1);
+}
+
+/* Typing animation */
+.bot.typing {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.message {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  /* Adjustments for smaller screens */
+}
+
+@media (max-width: 480px) {
+  /* Adjustments for even smaller screens */
+}
+/* Chatbot Container initially hidden */
+.chatbot-container {
+  display: none; /* Hidden by default */
+  position: fixed; /* Ensure it stays in place */
+  bottom: 20px; /* Position it at the bottom */
+  right: 20px; /* Position it at the right */
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chatbot-container.active {
+  display: flex; /* Show when active */
+}
